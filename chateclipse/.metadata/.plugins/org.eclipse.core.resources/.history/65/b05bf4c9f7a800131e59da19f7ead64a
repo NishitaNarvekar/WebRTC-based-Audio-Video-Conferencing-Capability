@@ -1,0 +1,46 @@
+<html>
+<head>
+
+<title>Insert title here</title>
+</head>
+<body bgcolor=CCCCFF>
+<form action="check.jsp" method="post">
+<table>
+<tr>
+<td>
+<br>
+User name :
+<br>
+</td>
+<td>
+<br>
+<input type="text" name="name" />
+<br>
+</td>
+<td rowspan="3">
+<img src="wel.jpg" align="right">
+</td>
+<tr>
+<td>
+<br>
+Password :
+<br>
+</td>
+<td>
+<br>
+<input type="password" name="pass" />
+<br>
+</td>
+<tr>
+<td></td>
+<td>
+<br>
+<input type="submit" />
+<br>
+</td>
+</tr>
+</table>
+</form>
+</body>
+</html>
+

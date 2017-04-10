@@ -1,0 +1,3 @@
+INDEX VERSION 1.126
+F:\BE project\eclipse programs\chateclipse\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3223040892.index
+\public\src

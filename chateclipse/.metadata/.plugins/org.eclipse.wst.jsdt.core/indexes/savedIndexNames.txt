@@ -1,0 +1,6 @@
+INDEX VERSION 1.122+F:\BE project\eclipse programs\chateclipse\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
+3234136255.index
+4084192003.index
+3039864497.index
+4071643030.index
+837855292.index

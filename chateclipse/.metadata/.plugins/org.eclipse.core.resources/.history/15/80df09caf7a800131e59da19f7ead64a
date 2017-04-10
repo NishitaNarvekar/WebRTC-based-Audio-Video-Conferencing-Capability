@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>services</title>
+</head>
+<body>
+<CENTER>
+<table width="100%">
+<tr>
+<td colspan="3" style="background-color:#FFFFFF;">
+
+<center><img src="logo.png" alt="black" width="100" height="100">
+<H1>Global Hospital</H1></center>
+<table style="width:100%;" cellspacing="0">
+        <tr bgcolor=0066FF>
+            <td><a href="home.html" style="text-decoration: none"><font color="white" size=5>Home</font></a></td>
+            <td><a href="services.html" style="text-decoration: none"><font color="white" size=5>Services</font></a></td>
+            <td><a href="doctors.html" style="text-decoration: none"><font color="white" size=5>Our doctors</font></a></td>
+
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td><a href="sign-up.html" style="text-decoration: none"><font color="white" size=5>Sign Up</font></a></td>
+            <td><a href="login.html" style="text-decoration: none"><font color="white" size=5>Login</font></a></td>
+        </tr>        
+</table>  
+<br>
+</td>
+</tr>
+</CENTER>
+<tr>
+<td style="background-color:#F0FFFF;width:500px;">
+<b><font size="5">Diagnostic Services</font></b><br>
+<ul>
+<li><font size="5">Blood bank</font></li>
+<li><font size="5">Radiology</font></li>
+<li><font size="5">Molecular Imaging</font></li>
+<ul>
+</td>
+<td style="background-color:#FFFFE0;height:200px;width:500px;">
+<b><font size="5">Auxiliary Services</font></b><br>
+<ul>
+<li><font size="5">Clinical Nutrition</font></li>
+<li><font size="5">Patients guide</font></li>
+<li><font size="5">Medical Social work</font></li>
+</ul>
+</td>
+<td style="background-color:#F0FFFF;width:500px;">
+<b><font size="5">Other Services</font></b><br>
+<ul>
+<li><font size="5">Speech therapy </font></li>
+<li><font size="5">Recommendations</font></li>
+<li><font size="5">Transportations</font></li>
+<ul>
+</td>
+
+</tr>
+</table>
+
+</body>
+</html>

@@ -1,0 +1,170 @@
+
+<html>
+<head>
+
+    <title></title>
+    <link href="default.css" rel="stylesheet" />
+    <script src="scripts/jquery-2.1.0.js"></script>
+    <script src="scripts/socket.io.js"></script>
+    <script src="scripts/default.js"></script>
+<style>
+video {
+  border:10px solid black;
+  width:400px;
+  height:400px;
+}
+
+</style>
+</head>
+<body>
+<table>
+<tr>
+<td>    
+<video id="vid1" autoplay="true" muted="false"></video>
+<video id="vid2" autoplay="autoplay"></video>
+<br>
+<button disabled="disabled" id="btn1" onclick="start()">Start</button>
+
+<button id="btn2" onclick="caller()">Caller</button>
+<button id="btn21" onclick="sendSDP()">send SDP</button>
+<!-- <0button id="caller2" onclick="caller()">Caller 2</button>
+  <button id="btn22" onclick="dispSDP()">display SDP</button>-->
+  
+<button id="clear" onclick="clear()">clear</button>
+<button id="btn3" onclick="hangup()">Hang Up</button>
+<br>
+Remote Desc: <input type="text" id="data"><br>
+
+<button id="btn4" onclick="answer(this.form)">Answer</button>
+<br>
+<button id="btn5" onclick="ack(this.form)">Ack</button>
+
+</td>
+<td>
+<div id="onlineusers">
+</div>
+
+<div id="docname">
+<br>
+Enter Doctors name: <input type="text" id="docn">
+<button id="calldoc">CALL</button>
+</div>
+
+
+</td>
+</tr>
+</table>
+ <div id="conversation"></div>
+
+
+<script>
+var pc,pc1,pc2;
+var localstream;
+var localdesc;
+navigator.getUserMedia = navigator.mozGetUserMedia;
+var constraints = {audio:true, video:true};
+var sdpConstraints = {'mandatory': {
+    'OfferToReceiveAudio':true, 
+    'OfferToReceiveVideo':true }};
+    
+//The RTCSessionDescription object.
+RTCSessionDescription = mozRTCSessionDescription;
+
+function doSuccess(stream) {
+	vid1.mozSrcObject = stream;
+	localstream = stream;
+	vid1.play();
+}
+
+function doError(error) {
+	console.log("navigator.getUserMedia error ", error);
+}
+
+function caller() {
+	var servers = null;
+	pc = new mozRTCPeerConnection(servers);
+	pc.addStream(localstream);
+	pc.onaddstream = gotRemoteStream; 
+	pc.createOffer(gotDescription1, logError);	
+}
+
+function ack(frm) {
+	var desc = document.getElementById('data').value;
+	var answer = JSON.parse(desc);
+	console.log("Remote answer = ", answer);
+	pc.setRemoteDescription(new mozRTCSessionDescription(answer));
+}
+
+
+function answer(frm) {
+	var servers = null;
+	var desc = document.getElementById('data').value;
+	//var desc = localdesc;
+	console.log("Entered offer = ", desc);
+	pc = new mozRTCPeerConnection(servers);
+	pc.addStream(localstream);
+	pc.onaddstream = gotRemoteStream;
+	var offer = JSON.parse(desc);
+	console.log("Remote offer = ", offer);
+	pc.setRemoteDescription(new mozRTCSessionDescription(offer));
+	pc.createAnswer(gotDescription2, errorHandler, sdpConstraints);
+	
+	
+	
+}
+
+navigator.getUserMedia(constraints, doSuccess, doError);
+
+function gotRemoteStream(e){
+	vid2.mozSrcObject = e.stream;
+	vid2.play();
+}
+
+function gotDescription1(desc){
+	console.log("LocalDescription = ", desc);
+	localdesc = JSON.stringify(desc);
+	console.log("LocalStringifyDescription = ", localdesc);
+	pc.setLocalDescription(desc);
+//	document.getElementById("data").value=' ';
+	//document.getElementById("data").value=localdesc;
+	
+	
+	//document.write("caller desc",desc);
+}
+function sendSDP(){
+document.getElementById("data").value=localdesc;
+}
+//function dispSDP(){
+	//document.getElementById("data").value=localdesc;
+	//}
+function gotDescription2(desc){
+	
+	console.log("LocalDescription = ", desc);
+	localdesc = JSON.stringify(desc);
+	console.log("LocalStringifyDescription = ", localdesc);
+	pc.setLocalDescription(desc);
+}
+function clear(){
+	document.getElementById("data").value=' ';
+}
+
+
+function logError(err) {
+	console.log("navigator.getUserMedia error ", err);
+}
+
+function onSdpError(e) {
+    console.error('onSdpError', e);
+}
+
+function onSdpSucces() {
+    console.log('onSdpSucces');
+}
+
+var errorHandler = function (err) {
+    console.error(err);
+};
+</script>
+
+</body>
+</html>

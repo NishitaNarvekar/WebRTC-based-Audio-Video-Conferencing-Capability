@@ -1,0 +1,210 @@
+<html>
+<head>
+<title>Home page 1</title>
+</head>
+<body>
+
+<form name = "myForm"></form>
+
+<CENTER>
+<table style="width:80%;">
+<tr>
+<td>
+<img src="logo.png" alt="black" width="150" height="150"><center><H2>Global Hospital</H2></center>
+</td>
+
+<!--  
+<td>
+<marquee behavior="scroll" direction="left">
+<img src="aaa.jpg" width="94" height="88" alt="Swimming fish" />
+
+</marquee>
+</td>
+-->
+<td>
+<center>
+<font size = 6 face="verdana" color=#0066FF><b>Welcome to the
+			 Online Medical Help Center</b></font>
+</center>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+<center><font size= 4><b>Sponsored By</b></font></center>
+<img src="ibm.jpg" alt="black" width="150" height="150">
+</td>
+<td>
+<img src="cummins.jpg" alt="black" width="150" height="150">
+</td>
+
+</tr>
+</table>
+
+<!-- Table one ends -->
+
+<table style="width:80%;" cellspacing="0">
+<br><br>
+<tr>
+
+<!-- <td style="background-color:#FFFFFF;">
+ <table style="width:100%;" cellspacing="0"> -->
+        <tr bgcolor=0066FF>
+            <td><a href="home.html" style="text-decoration: none"><font color="white" size=5>Home</font></a></td>
+            <td><a href="services.html" style="text-decoration: none"><font color="white" size=5>Services</font></a></td>
+            <td><a href="doctors.jsp" style="text-decoration: none"><font color="white" size=5>Our doctors</font></a></td>
+
+            
+            
+            <td>&nbsp;</td>
+            <td><a href="sign-up.html" style="text-decoration: none"><font color="white" size=5>Sign Up</font></a></td>
+            <td><a href="login.html" style="text-decoration: none"><font color="white" size=5>Login</font></a></td>
+			<td colspan="6">
+			</td>
+			<td>
+			</td>
+	
+        </tr>        
+</table> 
+<table>
+<tr>
+<td style="background-color:#FFFFFF; cellpadding="0";width:300px;">
+<img src="doc.jpeg" alt="black" width="600" height="400">
+
+<td style="background-color:#FFFFFF;height:80px;width:500px;">
+<table>
+
+
+<form action="reg.jsp" method="post">
+
+
+<tr>
+
+
+	<td>
+	<br>
+	Email-Id :
+	<br>
+	</td>
+	<td>
+	
+	<br>
+	<input type="text" name="email_id" />
+	<br>
+	</td>
+	<td rowspan="4">
+	</td>
+</tr>
+<tr>
+	<td>
+	<br>
+	Name :
+	<br>
+	</td>
+	<td>
+	<br>
+	<input type="text" name="name" />
+	
+	<br>
+	</td>
+	</tr>
+	
+<tr>
+<td>
+<br>
+User name :
+<br>
+</td>
+<td>
+<br>
+<input type="text" name="uname" />
+<br>
+</td>
+
+</tr>
+<tr>
+<td>
+<br>
+Password :
+<br>
+</td>
+<td>
+<br>
+<input type="password" name="pass" />
+<br>
+</td>
+</tr>
+<tr>
+<td>
+<br>
+Specialization :
+<br>
+</td>
+<td>
+<br>
+<input type="text" name="special" />
+<br>
+</td>
+<tr>
+<td>
+</td>
+<td>
+<br>
+<!-- <input type="submit" name="operation" onclick="document.pressed=this.value" value="Submit" /> -->
+<button onclick = "checkvalidation()">Submit</button>
+<br>
+</td>
+</tr>
+</form>
+</table>
+
+
+
+
+
+</tr>
+</table>
+
+<script>
+function checkvalidation()
+{
+	var flag=0;
+	var x=document.forms["myForm"]["name"].value;
+	if (x==null || x=="")
+		{
+			alert("Enter name");
+			flag=1;
+			return false;
+		}
+	x=document.forms["myForm"]["uname"].value;
+	if (x==null || x=="")
+		{
+			alert("Enter username");
+			return false;
+		}
+	x=document.forms["myForm"]["pass"].value;
+	if (x==null || x=="")
+		{
+			alert("Enter password");
+			return false;
+		}
+	x=document.forms["myForm"]["special"].value;
+	if (x==null || x=="")
+		{
+			alert("Enter specialization");
+			return false;
+		}
+	x=document.forms["myForm"]["email_id"].value;
+	var atops=x.indexOf("@");
+	var dotpos=x.lastIndexOf(".");
+	if(atpos<1 || dotpos<atpos+2 || dotpos+2>=x.length)
+		{
+			alert("Not a valid email address");
+			return false;
+		}
+}
+</script>
+
+</body>
+</html>
